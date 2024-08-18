@@ -1,0 +1,59 @@
+version: "3.7"
+
+networks:
+  teamleader.network:
+    driver: bridge
+
+services:
+  php:
+    build: ./docker/php
+    container_name: teamleader.php
+    tty: true
+    user: 1000:1000
+    depends_on:
+      - mysql
+    networks:
+      - teamleader.network
+    volumes:
+      - .:/var/www
+
+  nginx:
+    build: ./docker/nginx
+    tty: true
+    depends_on:
+      - php
+    ports:
+      - "433:433"
+      - "80:80"
+    networks:
+      - teamleader.network
+    volumes:
+      - .:/var/www
+
+  mysql:
+    image: mariadb:latest
+    tty: true
+    ports:
+      - "3306:3306"
+    networks:
+      - teamleader.network
+    volumes:
+      - "./docker/mysql/mariadb.cnf:/etc/mysql/conf.d/custom.cnf:ro"
+      - "./docker/mysql/dbdata:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123qwe
+      MYSQL_DATABASE: app_dev
+
+  phpmyadmin:
+    image: phpmyadmin
+    tty: true
+    depends_on:
+      - mysql
+    ports:
+      - "8080:80"
+    networks:
+      - teamleader.network
+    environment:
+      PMA_HOST: mysql
+      PMA_ARBITRARY: 1
+      PMA_PORT: 3306
