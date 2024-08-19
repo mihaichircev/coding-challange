@@ -2,9 +2,10 @@
 
 namespace App\Discount\Dto\Output;
 
+use App\Discount\Dto\ItemInterface;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 
-class ItemOutput
+class ItemOutput implements ItemInterface
 {
     public function __construct(
         private readonly string $productId,
@@ -12,12 +13,7 @@ class ItemOutput
         private readonly float $unitPrice,
         private readonly float $total,
         private float $totalWithDiscount
-    ) {
-        $this->productId = $productId;
-        $this->quantity = $quantity;
-        $this->unitPrice = $unitPrice;
-        $this->total = $total;
-    }
+    ) {}
 
     #[SerializedName("product-id")]
     public function getProductId(): string

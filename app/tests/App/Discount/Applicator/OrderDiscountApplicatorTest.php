@@ -44,7 +44,7 @@ class OrderDiscountApplicatorTest extends TestCase
             'expectedSupports' => true
         ];
 
-        yield 'Case 2: Client has orders for les than 1000' => [
+        yield 'Case 2: Client has orders for less than 1000' => [
             'totalOrders' => 200.0,
             'expectedSupports' => false
         ];

@@ -2,10 +2,11 @@
 
 namespace App\Discount\Dto\Input;
 
+use App\Discount\Dto\ItemInterface;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class ItemInput
+class ItemInput implements ItemInterface
 {
     #[Assert\NotBlank]
     private string $productId;

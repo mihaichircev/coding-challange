@@ -27,7 +27,7 @@ class OrderDiscountApplicator implements DiscountApplicatorInterface
 
     public function apply(OrderOutput $orderOutput): void
     {
-        $discountValue = $orderOutput->getTotal() * 0.1;
+        $discountValue = round($orderOutput->getTotal() * 0.1, 2);
         $orderOutput->setTotalWithDiscount($orderOutput->getTotalWithDiscount() - $discountValue);
 
         $discount = new DiscountOutput($this->getType(), $discountValue);
