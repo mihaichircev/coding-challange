@@ -14,8 +14,8 @@ class OrderOutput
         private readonly int $customerId,
         private readonly array $items,
         private readonly float $total,
-        private readonly float $totalWithDiscount,
-        private readonly array $discounts = []
+        private float $totalWithDiscount,
+        private array $discounts = []
     ) {}
 
     public function getId(): int
@@ -42,9 +42,23 @@ class OrderOutput
         return $this->total;
     }
 
+    public function setTotalWithDiscount(float $totalWithDiscount): self
+    {
+        $this->totalWithDiscount = $totalWithDiscount;
+
+        return $this;
+    }
+
     public function getTotalWithDiscount(): float
     {
         return $this->totalWithDiscount;
+    }
+
+    public function addDiscount(DiscountOutput $discount): self
+    {
+        $this->discounts[] = $discount;
+
+        return $this;
     }
 
     public function getDiscounts(): array

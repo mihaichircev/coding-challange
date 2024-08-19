@@ -2,6 +2,7 @@
 
 namespace App\Discount\Processor;
 
+use App\Discount\Applicator\DiscountApplicatorInterface;
 use App\Discount\Dto\Input\OrderInput;
 use App\Discount\Dto\Output\OrderOutput;
 use App\Discount\Factory\OrderOutputFactory;
@@ -20,8 +21,9 @@ class OrderDiscountProcessor
         $output = $this->orderOutputFactory->create($input);
 
         foreach ($this->applicators as $applicator) {
+            /** @var DiscountApplicatorInterface $applicator */
             if ($applicator->supports($input)) {
-                $applicator->apply($input, $output);
+                $applicator->apply($output);
             }
         }
 

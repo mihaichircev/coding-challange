@@ -11,7 +11,7 @@ class ItemOutput
         private readonly int $quantity,
         private readonly float $unitPrice,
         private readonly float $total,
-        private readonly float $totalWithDiscount
+        private float $totalWithDiscount
     ) {
         $this->productId = $productId;
         $this->quantity = $quantity;
@@ -39,6 +39,13 @@ class ItemOutput
     public function getTotal(): float
     {
         return (float) $this->total;
+    }
+
+    public function setTotalWithDiscount(float $totalWithDiscount): self
+    {
+        $this->totalWithDiscount = $totalWithDiscount;
+
+        return $this;
     }
 
     public function getTotalWithDiscount(): float

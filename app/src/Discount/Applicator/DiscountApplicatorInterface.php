@@ -20,7 +20,7 @@ interface DiscountApplicatorInterface
 
     public function supports(OrderInput $orderInput): bool;
 
-    public function apply(OrderInput $orderInput, OrderOutput $orderOutput): OrderOutput;
+    public function apply(OrderOutput $orderOutput): void;
 
     public function getType(): string;
 

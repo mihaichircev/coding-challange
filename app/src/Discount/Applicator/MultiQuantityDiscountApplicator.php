@@ -12,10 +12,7 @@ class MultiQuantityDiscountApplicator implements DiscountApplicatorInterface
         return false;
     }
 
-    public function apply(OrderInput $orderInput, OrderOutput $orderOutput): OrderOutput
-    {
-        return $orderOutput;
-    }
+    public function apply(OrderOutput $orderOutput): void {}
 
     public function getType(): string
     {
