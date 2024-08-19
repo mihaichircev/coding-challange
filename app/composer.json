@@ -27,7 +27,9 @@
         "symfony/serializer": "7.1.*",
         "symfony/validator": "7.1.*",
         "symfony/yaml": "7.1.*",
-        "symfony/twig-bundle": "7.1.*"
+        "symfony/twig-bundle": "7.1.*",
+        "webmozart/assert": "^1.11",
+        "phpdocumentor/reflection-docblock": "^5.4"
     },
     "autoload": {
         "psr-4": {

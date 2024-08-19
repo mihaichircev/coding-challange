@@ -3,3 +3,9 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+discount_controllers:
+    resource:
+        path: ../src/Discount/Controller
+        namespace: App\Discount\Controller
+    type: attribute
