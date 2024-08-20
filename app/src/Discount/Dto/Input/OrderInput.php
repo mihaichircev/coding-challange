@@ -9,13 +9,16 @@ class OrderInput
 {
     #[Assert\NotBlank]
     private ?int $id;
+
     #[Assert\NotBlank]
     private ?int $customerId;
-    #[Assert\NotBlank]
+
     /**
      * @var ItemInput[] $items
      */
+    #[Assert\NotBlank]
     private array $items;
+
     #[Assert\NotBlank]
     private ?float $total;
 

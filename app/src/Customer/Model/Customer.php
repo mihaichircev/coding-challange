@@ -7,8 +7,9 @@ class Customer
     public function __construct(
         private int $id,
         private float $totalOrders
-    ) {}
-    
+    ) {
+    }
+
     public function setId(int $id): self
     {
         $this->id = $id;

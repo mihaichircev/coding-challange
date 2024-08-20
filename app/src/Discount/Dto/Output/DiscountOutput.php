@@ -7,7 +7,8 @@ class DiscountOutput
     public function __construct(
         private readonly string $type,
         private readonly float $value
-    ) {}
+    ) {
+    }
 
     public function getType(): string
     {

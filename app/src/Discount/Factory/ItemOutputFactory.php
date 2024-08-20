@@ -7,7 +7,6 @@ use App\Discount\Dto\Output\ItemOutput;
 
 class ItemOutputFactory
 {
-
     public function create(ItemInput $input): ItemOutput
     {
         return new ItemOutput(

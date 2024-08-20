@@ -8,6 +8,7 @@ class OrderOutput
 {
     /**
      * @param ItemOutput[] $items
+     * @param DiscountOutput[] $discounts
      */
     public function __construct(
         private readonly int $id,
@@ -16,7 +17,8 @@ class OrderOutput
         private readonly float $total,
         private float $totalWithDiscount,
         private array $discounts = []
-    ) {}
+    ) {
+    }
 
     public function getId(): int
     {
@@ -61,6 +63,9 @@ class OrderOutput
         return $this;
     }
 
+    /**
+     * @return DiscountOutput[]
+     */
     public function getDiscounts(): array
     {
         return $this->discounts;

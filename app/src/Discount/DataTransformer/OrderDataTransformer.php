@@ -9,8 +9,12 @@ class OrderDataTransformer
 {
     public function __construct(
         private readonly NormalizerInterface $normalizer,
-    ) {}
+    ) {
+    }
 
+    /**
+     * @return mixed[]
+     */
     public function transform(OrderOutput $output): array
     {
         return $this->normalizer->normalize($output, 'json');

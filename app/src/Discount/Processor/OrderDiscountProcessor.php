@@ -10,10 +10,14 @@ use Symfony\Component\DependencyInjection\Attribute\AutowireIterator;
 
 class OrderDiscountProcessor
 {
+    /**
+     * @param DiscountApplicatorInterface[] $applicators
+     */
     public function __construct(
         #[AutowireIterator('app.order.discount.applicator')] private readonly iterable $applicators,
         private readonly OrderOutputFactory $orderOutputFactory
-    ) {}
+    ) {
+    }
 
 
     public function process(OrderInput $input): OrderOutput

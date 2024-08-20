@@ -17,7 +17,8 @@ class ItemOutput implements ItemInterface, CategoryAwareInterface
         private readonly float $unitPrice,
         private readonly float $total,
         private float $totalWithDiscount
-    ) {}
+    ) {
+    }
 
     #[SerializedName("product-id")]
     public function getProductId(): string

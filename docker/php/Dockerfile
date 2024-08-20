@@ -8,7 +8,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # Install non-dev dependencies
 RUN set -eux \
   && apk add --no-cache \
-  zip unzip bash curl tzdata icu-libs \
+  git zip unzip bash curl tzdata icu-libs \
   c-client make ca-certificates imap gmp gettext libssh2 yaml \
   libintl libxslt libpng libwebp libjpeg-turbo freetype imap \
   linux-headers oniguruma libxslt libpq vips \

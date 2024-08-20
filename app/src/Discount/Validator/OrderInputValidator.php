@@ -10,7 +10,8 @@ class OrderInputValidator
 {
     public function __construct(
         private readonly ValidatorInterface $validator
-    ) {}
+    ) {
+    }
 
     public function validate(OrderInput $input): void
     {

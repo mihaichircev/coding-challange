@@ -16,7 +16,8 @@ class OrderDiscountApplicator extends AbstractDiscountApplicator
 
     public function __construct(
         private readonly CustomerRepository $customerRepository
-    ) {}
+    ) {
+    }
 
     public function supports(OrderInput $order): bool
     {

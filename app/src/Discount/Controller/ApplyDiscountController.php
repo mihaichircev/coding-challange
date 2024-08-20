@@ -20,7 +20,8 @@ class ApplyDiscountController
         private readonly OrderInputValidator $orderInputValidator,
         private readonly OrderDataTransformer $orderDataTransformer,
         private readonly OrderDiscountProcessor $orderDiscountProcessor,
-    ) {}
+    ) {
+    }
 
     #[Route('/discount/apply', name: 'app_discount_apply', methods: 'POST')]
     public function discount(Request $request): Response

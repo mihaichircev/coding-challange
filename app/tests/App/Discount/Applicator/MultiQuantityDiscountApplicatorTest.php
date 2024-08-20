@@ -2,11 +2,7 @@
 
 namespace App\Tests\Discount\Applicator;
 
-use App\Customer\Model\Customer;
-use App\Customer\Repository\CustomerRepository;
 use App\Discount\Applicator\MultiQuantityDiscountApplicator;
-use App\Discount\Applicator\OrderDiscountApplicator;
-use App\Discount\Dto\Input\ItemInput;
 use App\Discount\Dto\Input\OrderInput;
 use App\Discount\Dto\Output\ItemOutput;
 use App\Discount\Dto\Output\OrderOutput;
@@ -14,9 +10,9 @@ use PHPUnit\Framework\TestCase;
 
 class MultiQuantityDiscountApplicatorTest extends TestCase
 {
-
     /**
      * @dataProvider supportsDataProvider
+     * @param mixed[] $items
      */
     public function testSupports(array $items, bool $expectedSupports): void
     {
@@ -61,6 +57,7 @@ class MultiQuantityDiscountApplicatorTest extends TestCase
 
     /**
      * @dataProvider applyDataProvider
+     * @param mixed[] $itemConfigs
      */
     public function testApply(
         array $itemConfigs,

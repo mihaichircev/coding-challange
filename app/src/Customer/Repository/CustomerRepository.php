@@ -9,8 +9,7 @@ use App\Customer\Model\Customer;
  */
 class CustomerRepository
 {
-
-    const CUSTOMERS = [
+    private const CUSTOMERS = [
         1 => ['totalOrders' => 2000.0],
         2 => ['totalOrders' => 1000.0],
         3 => ['totalOrders' => 1000.0],

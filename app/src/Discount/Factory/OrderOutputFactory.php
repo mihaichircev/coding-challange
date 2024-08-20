@@ -9,17 +9,17 @@ use App\Discount\Dto\Output\OrderOutput;
 
 class OrderOutputFactory
 {
-
     public function __construct(
         private readonly ItemOutputFactory $itemOutputFactory
-    ) {}
+    ) {
+    }
 
     public function create(OrderInput $input): OrderOutput
     {
         return new OrderOutput(
             $input->getId(),
             $input->getCustomerId(),
-            $input->getItems(),
+            $this->buildItems($input->getItems()),
             $input->getTotal(),
             $input->getTotal()
         );

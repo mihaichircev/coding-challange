@@ -23,6 +23,7 @@ class MultiQuantityDiscountApplicator extends AbstractDiscountApplicator
 
     public function apply(OrderOutput $order): void
     {
+        /** @var ItemOutput[] $items */
         $items = $this->getItemsForDiscountedCategory($order->getItems());
         $item = $this->getItemWithMinimumPrice($items);
 
@@ -48,13 +49,14 @@ class MultiQuantityDiscountApplicator extends AbstractDiscountApplicator
      */
     private function getItemsForDiscountedCategory(array $items): array
     {
-        return array_filter($items, function (CategoryAwareInterface $item) {
+        return array_filter($items, function ($item) {
+            /** @var CategoryAwareInterface $item */
             return $item->hasCategory(self::DISCOUNT_CATEGORY_NAME);
         });
     }
 
     /**
-     * @param ItemInterface[] $items
+     * @param ItemOutput[] $items
      */
     private function getItemWithMinimumPrice(array $items): ItemOutput
     {
@@ -68,10 +70,10 @@ class MultiQuantityDiscountApplicator extends AbstractDiscountApplicator
     }
 
     /**
-     * @param float[] $itemPrices
+     * @param ItemInterface[] $items
      */
-    private function hasItemCountAboveThreshold(array $itemPrices): bool
+    private function hasItemCountAboveThreshold(array $items): bool
     {
-        return count($itemPrices) >= self::DISCOUNT_CATEGORY_THRESHOLD;
+        return count($items) >= self::DISCOUNT_CATEGORY_THRESHOLD;
     }
 }

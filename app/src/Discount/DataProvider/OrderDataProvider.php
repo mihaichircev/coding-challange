@@ -9,7 +9,8 @@ class OrderDataProvider
 {
     public function __construct(
         private readonly SerializerInterface $serializer,
-    ) {}
+    ) {
+    }
 
     public function provide(string $data): OrderInput
     {

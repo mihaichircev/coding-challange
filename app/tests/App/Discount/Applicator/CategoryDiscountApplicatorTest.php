@@ -11,17 +11,16 @@ use PHPUnit\Framework\TestCase;
 
 class CategoryDiscountApplicatorTest extends TestCase
 {
-
     /**
      * @dataProvider supportsDataProvider
      */
-    public function testSupports(string $productId, int $quantity, bool $expectedSupports): void
+    public function testSupports(int $quantity, bool $hasCategory, bool $expectedSupports): void
     {
         $itemMock = $this->createConfiguredMock(
             ItemInput::class,
             [
-                'getProductId' => $productId,
-                'getQuantity' => $quantity
+                'getQuantity' => $quantity,
+                'hasCategory' => $hasCategory
             ]
         );
 
@@ -39,26 +38,26 @@ class CategoryDiscountApplicatorTest extends TestCase
     public function supportsDataProvider(): \Generator
     {
         yield 'Case 1: Client has more than 5 units and B1 category' => [
-            'productId' => 'B101',
             'quantity' => 6,
+            'hasCategory' => true,
             'expectedSupports' => true
         ];
 
         yield 'Case 2: Client has less than 6 units and B1 category' => [
-            'productId' => 'B101',
             'quantity' => 5,
+            'hasCategory' => true,
             'expectedSupports' => false
         ];
 
         yield 'Case 3: Client has more than 5 units and B2 category' => [
-            'productId' => 'B201',
             'quantity' => 5,
+            'hasCategory' => false,
             'expectedSupports' => false
         ];
 
         yield 'Case 3: Client has less than 6 units and B2 category' => [
-            'productId' => 'B201',
-            'quantity' => 5,
+            'quantity' => 6,
+            'hasCategory' => false,
             'expectedSupports' => false
         ];
     }

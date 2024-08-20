@@ -4,4 +4,6 @@ namespace App\Discount\Exception;
 
 use Exception;
 
-class InvalidInputException extends Exception {}
+class InvalidInputException extends Exception
+{
+}

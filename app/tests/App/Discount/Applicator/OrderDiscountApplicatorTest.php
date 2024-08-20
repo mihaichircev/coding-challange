@@ -11,7 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 class OrderDiscountApplicatorTest extends TestCase
 {
-
     /**
      * @dataProvider supportsDataProvider
      */
