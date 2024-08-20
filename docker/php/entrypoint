@@ -4,6 +4,4 @@ set -e
 
 composer install -o --working-dir="$WORKDIR"
 
-bin/console doctrine:migrations:migrate
-
 php-fpm
