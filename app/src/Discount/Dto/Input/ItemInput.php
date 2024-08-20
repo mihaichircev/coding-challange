@@ -2,12 +2,16 @@
 
 namespace App\Discount\Dto\Input;
 
+use App\Discount\Dto\CategoryAwareInterface;
+use App\Discount\Dto\CategoryAwareTrait;
 use App\Discount\Dto\ItemInterface;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class ItemInput implements ItemInterface
+class ItemInput implements ItemInterface, CategoryAwareInterface
 {
+    use CategoryAwareTrait;
+
     #[Assert\NotBlank]
     private string $productId;
     #[Assert\NotBlank]

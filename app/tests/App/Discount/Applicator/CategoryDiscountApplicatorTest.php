@@ -94,7 +94,7 @@ class CategoryDiscountApplicatorTest extends TestCase
     {
         yield 'Case 1: Client has 6 units, each 2.99' => [
             'productId' => 'B101',
-            'quanity' => 6,
+            'quantity' => 6,
             'unitPrice' => 2.99,
             'total' => 17.94,
             'expectedOrderTotalWithDiscount' => 14.95,
@@ -104,7 +104,7 @@ class CategoryDiscountApplicatorTest extends TestCase
 
         yield 'Case 2: Client has 12 units, each 2.99' => [
             'productId' => 'B101',
-            'quanity' => 12,
+            'quantity' => 12,
             'unitPrice' => 2.99,
             'total' => 35.88,
             'expectedOrderTotalWithDiscount' => 32.89,

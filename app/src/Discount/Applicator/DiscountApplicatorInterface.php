@@ -18,9 +18,9 @@ interface DiscountApplicatorInterface
     const PRIORITY_MULTI_QUANTITY_DISCOUNT = 10;
 
 
-    public function supports(OrderInput $orderInput): bool;
+    public function supports(OrderInput $order): bool;
 
-    public function apply(OrderOutput $orderOutput): void;
+    public function apply(OrderOutput $order): void;
 
     public function getType(): string;
 

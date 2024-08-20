@@ -2,11 +2,15 @@
 
 namespace App\Discount\Dto\Output;
 
+use App\Discount\Dto\CategoryAwareInterface;
+use App\Discount\Dto\CategoryAwareTrait;
 use App\Discount\Dto\ItemInterface;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 
-class ItemOutput implements ItemInterface
+class ItemOutput implements ItemInterface, CategoryAwareInterface
 {
+    use CategoryAwareTrait;
+
     public function __construct(
         private readonly string $productId,
         private readonly int $quantity,
