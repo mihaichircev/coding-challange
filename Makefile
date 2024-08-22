@@ -9,3 +9,9 @@ stop:
 
 down: 
 	docker-compose down
+
+grumphp:
+	docker exec -it teamleader.php ./vendor/bin/grumphp run
+
+unit-tests:
+	docker exec -it teamleader.php ./vendor/bin/phpunit
